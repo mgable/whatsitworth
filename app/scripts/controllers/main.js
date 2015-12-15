@@ -15,15 +15,9 @@ angular.module('whatsitworth')
 
 	$scope.dataSearch.transport.options.read.data = getData;
 
-	function getData(){
-		return;
+	function getData(data){
+		return  ($scope.term) ? QueryBuilder.searchAllFields($scope.term, $scope.options) : "" ;
 	}
-
-	// function getData(data){
-	// 	if (data) {
-	// 		return QueryBuilder.searchAllFields($scope.term, $scope.options);
-	// 	}
-	// }
 })
 .controller("AdvancedCtrl", function($scope, QueryBuilder){
 	var dataSuggest = new kendo.data.DataSource({
@@ -68,7 +62,7 @@ angular.module('whatsitworth')
   	var dataSearch = new kendo.data.DataSource({
 			transport: {
 				read: {
-					url: makeUrl(CONFIG.data.endpoints.search), //'//localhost:9200/bank/accounts/_search',
+					url: makeUrl(CONFIG.data.endpoints.search), 
 					type: 'POST',
 					dataType: 'json',
 					contentType: 'application/json'
@@ -80,6 +74,7 @@ angular.module('whatsitworth')
 			serverPaging: true,
 			serverSorting: true,
 			totalRecords: null,
+			sort: { field: "date", dir: "desc" },
 			schema: {
 				parse: function(data){
 					this.totalRecords = data.hits.total;
@@ -95,6 +90,10 @@ angular.module('whatsitworth')
 						if (formattedDate) {
 							item._source.data.date.formatted = formattedDate.toString("MMM d, yyyy");
 						}
+
+						var formattedPrice = item._source.data.price;
+
+						item._source.data.price = item._source.data.price.toFixed(2);
 
 						return item._source;
 					});
