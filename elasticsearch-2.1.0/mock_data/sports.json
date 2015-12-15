@@ -1,0 +1,44 @@
+{"index":{"_index":"sports","_type":"athlete","_id": "1"}}
+{"name":"Michael Lussier", "birthdate":"1985-10-1", "sport":"Baseball", "rating": "5", "location":"46.22,-68.45"}
+{"index":{"_index":"sports","_type":"athlete","_id": "2"}}
+{"name":"Michael Whatshisname", "birthdate":"1984-11-2", "sport":"Baseball", "rating": "4", "location":"45.21,-68.35"}
+{"index":{"_index":"sports","_type":"athlete","_id": "3"}}
+{"name":"Jim Guy", "birthdate":"1988-10-3", "sport":"Baseball", "rating": "3", "location":"45.16,-63.58" }
+{"index":{"_index":"sports","_type":"athlete","_id":"4"}}
+{"name":"Joe Bar", "birthdate":"1991-5-20", "sport":"Baseball", "rating": "3", "location":"45.22,-68.53"}
+{"index":{"_index":"sports","_type":"athlete","_id":"5"}}
+{"name":"Tim Buzz", "birthdate":"1993-2-28", "sport":"Baseball", "rating": "3", "location":"46.22,-68.85"}
+{"index":{"_index":"sports","_type":"athlete","_id":"6"}}
+{"name":"Alfred Fizz", "birthdate":"1990-9-9", "sport":"Baseball", "rating": "2", "location":"45.12,-68.35"}
+{"index":{"_index":"sports","_type":"athlete","_id":"7"}}
+{"name":"Jeff Dude", "birthdate":"1990-4-1", "sport":"Baseball", "rating": "2", "location":"46.12,-68.55"}
+{"index":{"_index":"sports","_type":"athlete","_id":"8"}}
+{"name":"Will Person", "birthdate":"1982-3-1", "sport":"Baseball", "rating": "4", "location":"46.25,-68.55" }
+{"index":{"_index":"sports","_type":"athlete","_id":"9"}}
+{"name":"Mick Man", "birthdate":"1982-10-1", "sport":"Baseball", "rating": "4", "location":"46.22,-68.45"}
+{"index":{"_index":"sports","_type":"athlete","_id":"10"}}
+{"name":"Pong Ball", "birthdate":"1989-11-2", "sport":"Baseball", "rating": "3", "location":"45.21,-68.35"}
+{"index":{"_index":"sports","_type":"athlete","_id":"11"}}
+{"name":"Ray Beam", "birthdate":"1978-10-3", "sport":"Baseball", "rating": "2", "location":"45.16,-63.58" }
+{"index":{"_index":"sports","_type":"athlete","_id":"12"}}
+{"name":"Ping Server", "birthdate":"1981-5-20", "sport":"Baseball", "rating": "4", "location":"45.22,-68.53"}
+{"index":{"_index":"sports","_type":"athlete","_id":"13"}}
+{"name":"Duke Nukem", "birthdate":"1993-2-28", "sport":"Baseball", "rating": "5", "location":"46.22,-68.85"}
+{"index":{"_index":"sports","_type":"athlete","_id":"14"}}
+{"name":"Hal Beard", "birthdate":"1980-9-9", "sport":"Baseball", "rating": "4", "location":"45.12,-68.35"}
+{"index":{"_index":"sports","_type":"athlete","_id":"15"}}
+{"name":"Charge Bull", "birthdate":"1983-4-1", "sport":"Baseball", "rating": "2", "location":"46.12,-68.55"}
+{"index":{"_index":"sports","_type":"athlete","_id":"16"}}
+{"name":"Barry Bongos", "birthdate":"1987-3-1", "sport":"Baseball", "rating": "5", "location":"46.25,-68.55" }
+{"index":{"_index":"sports","_type":"athlete","_id":"17"}}
+{"name":"Michael Lussier", "birthdate":"1988-3-1", "sport":"Golf", "rating": "6", "location":"46.25,-68.55" }
+{"index":{"_index":"sports","_type":"athlete","_id":"18"}}
+{"name":"Bingo Bango", "birthdate":"1988-3-1", "sport":"Golf", "rating": "10", "location":"46.25,-68.55" }
+{"index":{"_index":"sports","_type":"athlete","_id":"19"}}
+{"name":"James Dingo", "birthdate":"1973-3-1", "sport":"Basketball", "rating": "8", "location":"46.25,-68.55" }
+{"index":{"_index":"sports","_type":"athlete","_id":"20"}}
+{"name":"Wayne Name", "birthdate":"1976-3-1", "sport":"Hockey", "rating": "10", "location":"46.25,-68.55" }
+{"index":{"_index":"sports","_type":"athlete","_id":"21"}}
+{"name":"Brady Shady", "birthdate":"1970-3-1", "sport":"Football", "rating": "10", "location":"46.25,-68.55" }
+{"index":{"_index":"sports","_type":"athlete","_id":"22"}}
+{"name":"Lewis Clark", "birthdate":"1974-3-1", "sport":"Football", "rating": "10", "location":"46.25,-68.55" }

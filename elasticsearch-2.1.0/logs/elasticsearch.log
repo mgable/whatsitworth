@@ -1,0 +1,142 @@
+[2015-12-15 06:29:02,799][INFO ][node                     ] [Archangel] version[2.1.0], pid[15195], build[72cd1f1/2015-11-18T22:40:03Z]
+[2015-12-15 06:29:02,800][INFO ][node                     ] [Archangel] initializing ...
+[2015-12-15 06:29:02,900][INFO ][plugins                  ] [Archangel] loaded [], sites []
+[2015-12-15 06:29:03,025][INFO ][env                      ] [Archangel] using [1] data paths, mounts [[/ (/dev/disk1)]], net usable_space [234.5gb], net total_space [464.6gb], spins? [unknown], types [hfs]
+[2015-12-15 06:29:07,860][INFO ][node                     ] [Archangel] initialized
+[2015-12-15 06:29:07,860][INFO ][node                     ] [Archangel] starting ...
+[2015-12-15 06:29:08,120][INFO ][transport                ] [Archangel] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[fe80::1]:9300}, {[::1]:9300}
+[2015-12-15 06:29:08,174][INFO ][discovery                ] [Archangel] elasticsearch/INxgLkMsRYO0gNEFF3yhbw
+[2015-12-15 06:29:11,273][INFO ][cluster.service          ] [Archangel] new_master {Archangel}{INxgLkMsRYO0gNEFF3yhbw}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2015-12-15 06:29:11,296][INFO ][http                     ] [Archangel] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[fe80::1]:9200}, {[::1]:9200}
+[2015-12-15 06:29:11,296][INFO ][node                     ] [Archangel] started
+[2015-12-15 06:29:11,377][INFO ][gateway                  ] [Archangel] recovered [0] indices into cluster_state
+[2015-12-15 06:29:25,443][INFO ][rest.suppressed          ] /collectors Params: {index=collectors}
+[collectors] IndexNotFoundException[no such index]
+	at org.elasticsearch.cluster.metadata.IndexNameExpressionResolver$WildcardExpressionResolver.resolve(IndexNameExpressionResolver.java:566)
+	at org.elasticsearch.cluster.metadata.IndexNameExpressionResolver.concreteIndices(IndexNameExpressionResolver.java:133)
+	at org.elasticsearch.cluster.metadata.IndexNameExpressionResolver.concreteIndices(IndexNameExpressionResolver.java:77)
+	at org.elasticsearch.action.admin.indices.delete.TransportDeleteIndexAction.checkBlock(TransportDeleteIndexAction.java:75)
+	at org.elasticsearch.action.admin.indices.delete.TransportDeleteIndexAction.checkBlock(TransportDeleteIndexAction.java:42)
+	at org.elasticsearch.action.support.master.TransportMasterNodeAction.innerExecute(TransportMasterNodeAction.java:94)
+	at org.elasticsearch.action.support.master.TransportMasterNodeAction.doExecute(TransportMasterNodeAction.java:86)
+	at org.elasticsearch.action.admin.indices.delete.TransportDeleteIndexAction.doExecute(TransportDeleteIndexAction.java:70)
+	at org.elasticsearch.action.admin.indices.delete.TransportDeleteIndexAction.doExecute(TransportDeleteIndexAction.java:42)
+	at org.elasticsearch.action.support.TransportAction.execute(TransportAction.java:70)
+	at org.elasticsearch.client.node.NodeClient.doExecute(NodeClient.java:58)
+	at org.elasticsearch.client.support.AbstractClient.execute(AbstractClient.java:347)
+	at org.elasticsearch.client.FilterClient.doExecute(FilterClient.java:52)
+	at org.elasticsearch.rest.BaseRestHandler$HeadersAndContextCopyClient.doExecute(BaseRestHandler.java:83)
+	at org.elasticsearch.client.support.AbstractClient.execute(AbstractClient.java:347)
+	at org.elasticsearch.client.support.AbstractClient$IndicesAdmin.execute(AbstractClient.java:1183)
+	at org.elasticsearch.client.support.AbstractClient$IndicesAdmin.delete(AbstractClient.java:1323)
+	at org.elasticsearch.rest.action.admin.indices.delete.RestDeleteIndexAction.handleRequest(RestDeleteIndexAction.java:50)
+	at org.elasticsearch.rest.BaseRestHandler.handleRequest(BaseRestHandler.java:54)
+	at org.elasticsearch.rest.RestController.executeHandler(RestController.java:207)
+	at org.elasticsearch.rest.RestController.dispatchRequest(RestController.java:166)
+	at org.elasticsearch.http.HttpServer.internalDispatchRequest(HttpServer.java:128)
+	at org.elasticsearch.http.HttpServer$Dispatcher.dispatchRequest(HttpServer.java:86)
+	at org.elasticsearch.http.netty.NettyHttpServerTransport.dispatchRequest(NettyHttpServerTransport.java:348)
+	at org.elasticsearch.http.netty.HttpRequestHandler.messageReceived(HttpRequestHandler.java:63)
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564)
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791)
+	at org.elasticsearch.http.netty.pipelining.HttpPipeliningHandler.messageReceived(HttpPipeliningHandler.java:60)
+	at org.jboss.netty.channel.SimpleChannelHandler.handleUpstream(SimpleChannelHandler.java:88)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564)
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791)
+	at org.jboss.netty.handler.codec.http.HttpChunkAggregator.messageReceived(HttpChunkAggregator.java:145)
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564)
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791)
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:108)
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564)
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791)
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296)
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:459)
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:536)
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:435)
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:70)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564)
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:791)
+	at org.elasticsearch.common.netty.OpenChannelsHandler.handleUpstream(OpenChannelsHandler.java:75)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:559)
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268)
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:88)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-15 06:29:25,797][INFO ][cluster.metadata         ] [Archangel] [collectors] creating index, cause [api], templates [], shards [5]/[1], mappings []
+[2015-12-15 06:29:26,260][DEBUG][action.admin.indices.mapping.put] [Archangel] failed to put mappings on indices [[collectors]], type [tins]
+MapperParsingException[No type specified for field [data]]
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseProperties(ObjectMapper.java:302)
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseObjectOrDocumentTypeProperties(ObjectMapper.java:223)
+	at org.elasticsearch.index.mapper.object.RootObjectMapper$TypeParser.parse(RootObjectMapper.java:139)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parse(DocumentMapperParser.java:210)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parseCompressed(DocumentMapperParser.java:191)
+	at org.elasticsearch.index.mapper.MapperService.parse(MapperService.java:387)
+	at org.elasticsearch.cluster.metadata.MetaDataMappingService$2.execute(MetaDataMappingService.java:386)
+	at org.elasticsearch.cluster.service.InternalClusterService$UpdateTask.run(InternalClusterService.java:388)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.runAndClean(PrioritizedEsThreadPoolExecutor.java:231)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.run(PrioritizedEsThreadPoolExecutor.java:194)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-15 06:29:26,262][INFO ][rest.suppressed          ] /collectors/tins/_mapping Params: {index=collectors, type=tins}
+MapperParsingException[No type specified for field [data]]
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseProperties(ObjectMapper.java:302)
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseObjectOrDocumentTypeProperties(ObjectMapper.java:223)
+	at org.elasticsearch.index.mapper.object.RootObjectMapper$TypeParser.parse(RootObjectMapper.java:139)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parse(DocumentMapperParser.java:210)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parseCompressed(DocumentMapperParser.java:191)
+	at org.elasticsearch.index.mapper.MapperService.parse(MapperService.java:387)
+	at org.elasticsearch.cluster.metadata.MetaDataMappingService$2.execute(MetaDataMappingService.java:386)
+	at org.elasticsearch.cluster.service.InternalClusterService$UpdateTask.run(InternalClusterService.java:388)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.runAndClean(PrioritizedEsThreadPoolExecutor.java:231)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.run(PrioritizedEsThreadPoolExecutor.java:194)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-15 06:29:26,642][INFO ][cluster.metadata         ] [Archangel] [collectors] create_mapping [tins]
+[2015-12-15 06:29:27,042][INFO ][cluster.metadata         ] [Archangel] [collectors] update_mapping [tins]
+[2015-12-15 06:35:25,163][INFO ][cluster.metadata         ] [Archangel] [collectors] deleting index
+[2015-12-15 06:35:25,229][INFO ][cluster.metadata         ] [Archangel] [collectors] creating index, cause [api], templates [], shards [5]/[1], mappings []
+[2015-12-15 06:35:25,310][DEBUG][action.admin.indices.mapping.put] [Archangel] failed to put mappings on indices [[collectors]], type [tins]
+MapperParsingException[No type specified for field [data]]
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseProperties(ObjectMapper.java:302)
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseObjectOrDocumentTypeProperties(ObjectMapper.java:223)
+	at org.elasticsearch.index.mapper.object.RootObjectMapper$TypeParser.parse(RootObjectMapper.java:139)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parse(DocumentMapperParser.java:210)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parseCompressed(DocumentMapperParser.java:191)
+	at org.elasticsearch.index.mapper.MapperService.parse(MapperService.java:387)
+	at org.elasticsearch.cluster.metadata.MetaDataMappingService$2.execute(MetaDataMappingService.java:386)
+	at org.elasticsearch.cluster.service.InternalClusterService$UpdateTask.run(InternalClusterService.java:388)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.runAndClean(PrioritizedEsThreadPoolExecutor.java:231)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.run(PrioritizedEsThreadPoolExecutor.java:194)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-15 06:35:25,311][INFO ][rest.suppressed          ] /collectors/tins/_mapping Params: {index=collectors, type=tins}
+MapperParsingException[No type specified for field [data]]
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseProperties(ObjectMapper.java:302)
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseObjectOrDocumentTypeProperties(ObjectMapper.java:223)
+	at org.elasticsearch.index.mapper.object.RootObjectMapper$TypeParser.parse(RootObjectMapper.java:139)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parse(DocumentMapperParser.java:210)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parseCompressed(DocumentMapperParser.java:191)
+	at org.elasticsearch.index.mapper.MapperService.parse(MapperService.java:387)
+	at org.elasticsearch.cluster.metadata.MetaDataMappingService$2.execute(MetaDataMappingService.java:386)
+	at org.elasticsearch.cluster.service.InternalClusterService$UpdateTask.run(InternalClusterService.java:388)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.runAndClean(PrioritizedEsThreadPoolExecutor.java:231)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.run(PrioritizedEsThreadPoolExecutor.java:194)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-15 06:35:25,356][INFO ][cluster.metadata         ] [Archangel] [collectors] create_mapping [tins]

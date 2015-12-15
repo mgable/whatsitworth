@@ -1,0 +1,17 @@
+<!-- simple search -->
+<div class="input-group">
+	<input type="text" class="form-control" ng-model="fields.term" placeholder="Search for...">
+	<span class="input-group-btn">
+		<input class="btn btn-primary" type="submit" value="Search" ng-click="simpleSearch(fields.term)">
+		<button class="btn btn-default" type="button" id="clearButton" ng-click="clear()">Clear</button>
+	</span>
+</div>
+
+<p class="text-center"><button type="button" class="btn btn-link" ui-sref="Search.advanced">use advanced search</button></p>
+
+<div class="grid" ng-show="dataSearch.data().length">
+	<div kendo-grid="beakerGrid" options="mainGridOptions"></div>
+</div>
+
+<div ng-show="!searchForm.pristine && searchForm.$submitted && searchForm.$dirty && dataSearch.data().length === 0">No results found for <em>{{noResultsTerm}}</em>.</div>
+<br/>

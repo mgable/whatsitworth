@@ -1,0 +1,46 @@
+.whatsitworth {
+	.header {
+		border-bottom: 0 none;
+	}
+	.navbar-brand.logo {
+		padding: 5px 15px;
+	}
+	.btn:focus, .btn:active:focus{
+		outline: none;
+	}
+
+	button:visited, button:hover {
+		text-decoration: none;
+	}
+
+	.sub-head {
+		text-transform: uppercase;
+		color: darkgray;
+		font-size:12px;
+		margin: 0 0 10px;
+	}
+	.highlight {
+		background-color: green;
+		color: white;
+	}
+
+	/* overwrite kendo's css */
+	.k-widget {
+		input.form-control {
+			height: 100%;
+			background-color: transparent;
+		}
+		&.k-autocomplete.form-control {
+			float: none;
+			width: 244px;
+			box-sizing: initial;
+			display: block;
+			float: none;
+			background-color: transparent;
+		}
+	}
+
+	.slider-holder {
+		margin: 0 0 10px;
+	}
+}

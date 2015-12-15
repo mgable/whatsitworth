@@ -1,0 +1,84 @@
+<!-- advanced search -->
+<div class="form-group">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="sub-head">Search by field</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="input-group">
+							<label for="firstname">First Name</label>
+							<input type="text" ng-model="fields.firstname" class="form-control" id="firstname" autocomplete="false"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<label for="lastname">Last Name</label>
+							<input type="text" ng-model="fields.lastname" class="form-control" id="lastname" autocomplete="off" />
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="form-group">
+							<div class="input-group">
+								<label for="city">City</label>
+								<input kendo-auto-complete  k-options="acCustomOptions" ng-model="fields.city" id="city" class="form-control" />
+							</div>
+						</div>
+						<div class="input-group">
+							<label for="description">Description</label>
+							<input type="text" ng-model="fields.description" class="form-control" id="description" autocomplete="off" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group form-inline">
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" value="" ng-model="options.fuzzySearch">
+				Fuzzy Search
+			</label>
+		</div>
+		&nbsp;
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" value="" ng-model="options.highlight">
+				Highlight Matches
+			</label>
+		</div>
+		&nbsp;
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" value="" ng-model="options.exactMatch">
+				Exact Match
+			</label>
+		</div>
+	</div>
+
+	<div class="panel panel-default" ng-if="sliderOptions">
+		<div class="panel-body">
+			<div class="sub-head">Filter by balance</div>
+			<div class="row slider-holder">
+				<div class="col-md-12">
+					<input kendo-slider="beakerSlider" options="sliderOptions"  id="beakerSlider" style="width: 100%" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<input class="btn btn-primary" type="submit" value="Search" ng-click="simpleSearch(fields)">&nbsp;
+	<button class="btn btn-default" type="button" id="clearButton" ng-click="clear()">Clear</button>
+</div>
+
+<p class="text-center"><button type="button" class="btn btn-link" ui-sref="Search.simple">use simple search</button></p>
+
+<div class="grid" ng-show="dataSearch.data().length">
+	<div kendo-grid="beakerGrid" options="mainGridOptions"></div>
+</div>
+
+<div ng-show="!searchForm.pristine && searchForm.$submitted && searchForm.$dirty && dataSearch.data().length === 0">No results found for <em>{{noResultsTerm}}</em>.</div>
+<br/>

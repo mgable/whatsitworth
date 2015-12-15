@@ -1,0 +1,7 @@
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
+.DS_Store
+elasticsearch-2.1.0/.DS_Store
