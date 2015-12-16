@@ -30,12 +30,8 @@ angular.module('whatsitworth')
     	return data;
 	}
 
-	function searchFields(data, options){
-		var fields = Object.keys(clean(data)),
-			term = fields.map(function(v){
-				return data[v];
-			}).join(' '),
-			options = options || {},
+	function searchFields(term, fields, options){
+		var options = options || {},
 			query = {};
 
 		if (options.fuzzySearch){

@@ -16,46 +16,11 @@ angular.module('whatsitworth')
 	$scope.dataSearch.transport.options.read.data = getData;
 
 	function getData(data){
-		return  ($scope.term) ? QueryBuilder.searchAllFields($scope.term, $scope.options) : "" ;
-	}
-})
-.controller("AdvancedCtrl", function($scope, QueryBuilder){
-	var dataSuggest = new kendo.data.DataSource({
-		transport: {
-			read: {
-				url: '//localhost:9200/bank/_suggest',
-				type: 'POST',
-				dataType: 'json',
-				contentType: 'application/json',
-				data: suggest
-			},
-			parameterMap: $scope.parameterMap
-		},
-		serverFiltering: true,
-		schema: {
-			parse: function(data){
-				return data.accounts_suggest[0].options;
-			}
+		if (!_.isEmpty($scope.options)){
+			return QueryBuilder.searchFields([$scope.term], ['title'], $scope.options);
+		} else {
+			return  ($scope.term) ? QueryBuilder.searchAllFields($scope.term) : "" ;
 		}
-	}),
-	acCustomOptions = {
-		dataSource: dataSuggest,
-        dataTextField: "text"
-    };
-
-    $scope.clear();
-
-	$scope.dataSearch.transport.options.read.data = getData;
-	$scope.acCustomOptions = acCustomOptions;
-
-	function getData(data){
-		if (data) {
-			return QueryBuilder.searchFields($scope.term, $scope.options);
-		}
-	}
-
-	function suggest(data){
-		return QueryBuilder.suggest(data.filter.filters[0].value);
 	}
 })
 .controller('SearchCtrl', function ($scope, $timeout, CONFIG) {
@@ -78,6 +43,7 @@ angular.module('whatsitworth')
 			schema: {
 				parse: function(data){
 					this.totalRecords = data.hits.total;
+					$scope.totalResults = this.totalRecords;
 					return data.hits.hits.map(function(item){
 						if (item.highlight) {
 							_.each(item.highlight, function(v,i){
@@ -85,15 +51,15 @@ angular.module('whatsitworth')
 							});
 						}
 
-						var formattedDate = new Date(item._source.data.date.formatted);
+						var formattedDate = new Date(item._source.meta.date.formatted);
 
 						if (formattedDate) {
-							item._source.data.date.formatted = formattedDate.toString("MMM d, yyyy");
+							item._source.meta.date.formatted = formattedDate.toString("MMM d, yyyy");
 						}
 
-						var formattedPrice = item._source.data.price;
+						var formattedPrice = item._source.meta.price / 100;
 
-						item._source.data.price = item._source.data.price.toFixed(2);
+						item._source.meta.price = formattedPrice.toFixed(2);
 
 						return item._source;
 					});
@@ -103,22 +69,22 @@ angular.module('whatsitworth')
 				},
 				model: {
             		id: "_id",
-            		data: "data",
+            		// data: "data",
               		fields: {
                 		_id: {
 							type: "string"
 						},
 						price: {
-							from: "data.price"
+							from: "meta.price"
 						},
 						bidders: {
-							from: "data.bids"
+							from: "meta.bids"
 						},
 						watchers: {
-							from: "data.watchers"
+							from: "meta.watchers"
 						},
 						date: {
-							from: "data.date.formatted"
+							from: "meta.date.formatted"
 						}
 					}
 				}
@@ -188,6 +154,7 @@ angular.module('whatsitworth')
 		mainGridOptions.dataSource.data("");
 		$scope.term = "";
 		$scope.fields = {};
+		$scope.options = {};
 		$scope.noResultsTerm = "";
 		$timeout(function(){
 			$scope.searchForm.$submitted = false;
@@ -196,9 +163,9 @@ angular.module('whatsitworth')
 	}
 
 	function simpleSearch(term){
-		if (!_.isEmpty(term)) {
+		//if (!_.isEmpty(term)) {
 			$scope.term = term;
-			dataSearch.query({"page": 1, "skip": 0, "pageSize": 10}).then(function(){
+			dataSearch.query({"page": 1, "skip": 0, "pageSize": 10, "sort": { "field": "date", "dir": "desc" }}).then(function(){
 				if (dataSearch.data().length === 0){
 					$scope.$apply(function(){
 						$scope.noResultsTerm = _.clone($scope.term);
@@ -206,9 +173,9 @@ angular.module('whatsitworth')
 					});
 				}
 			});
-		} else {
-			clear();
-		}
+		// } else {
+		// 	clear();
+		// }
 	}
 
 	$scope.fields = {};

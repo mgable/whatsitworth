@@ -18,7 +18,8 @@ angular.module('whatsitworth')
 					template: "<img src='#: src  #' />"
 				},{
 					field: "title",
-					title: "Title"
+					title: "Title",
+					encoded: false
 				},{
 					field: "price",
 					title: "Sold For",

@@ -25,19 +25,14 @@ angular.module('whatsitworth', [
 		.state('Search',{
 			abstract: true,
 			templateUrl: 'views/search.html',
-			controller: 'SearchCtrl',
+			controller: 'SearchCtrl' //,
+			// resolve: {
+			// 	Stats: function(DataStats){return DataStats.get();}
+			// }
 		})
 		.state('Search.simple', {
 			url: '/simple',
 			templateUrl: 'views/simple.html',
 			controller: 'SimpleCtrl',
-		})
-		.state('Search.advanced', {
-			url: '/advanced',
-			templateUrl: 'views/advanced.html',
-			controller: 'AdvancedCtrl',
-			resolve: {
-				Stats: function(DataStats){return DataStats.get();}
-			}
 		});
 });

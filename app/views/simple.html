@@ -7,9 +7,34 @@
 	</span>
 </div>
 
-<p class="text-center"><button type="button" class="btn btn-link" ui-sref="Search.advanced">use advanced search</button></p>
+<div class="form-group form-inline">
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" value="" ng-model="options.fuzzySearch">
+			Fuzzy Search
+		</label>
+	</div>
+	&nbsp;
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" value="" ng-model="options.highlight">
+			Highlight Matches
+		</label>
+	</div>
+	&nbsp;
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" value="" ng-model="options.exactMatch">
+			Exact Match
+		</label>
+	</div>
+</div>
+
+<!-- <p class="text-center"><button type="button" class="btn btn-link" ui-sref="Search.advanced">use advanced search</button></p> -->
 
 <div class="grid" ng-show="dataSearch.data().length">
+	<div>A search for <em>{{term || "everything"}}</em> found {{totalResults}} results.</div>
+	<br/>
 	<div kendo-grid="beakerGrid" options="mainGridOptions"></div>
 </div>
 

@@ -12,7 +12,7 @@ angular.module('whatsitworth').service("DataStats", function(QueryBuilder){
 	var dataStats = new kendo.data.DataSource({
 		transport: {
 			read: {
-				url: '//localhost:9200/bank/_search',
+				url: '//localhost:9200/collectors/_search',
 				type: 'POST',
 				dataType: 'json',
 				contentType: 'application/json',
@@ -41,7 +41,7 @@ angular.module('whatsitworth').service("DataStats", function(QueryBuilder){
 		});
 	};
 
-	function getStats(){
-		return QueryBuilder.getStats("balance");
+	function getStats(field){
+		return QueryBuilder.getStats(field);
 	}
 });
