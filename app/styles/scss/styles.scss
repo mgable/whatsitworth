@@ -39,8 +39,22 @@
 			background-color: transparent;
 		}
 	}
+	.k-state-active, .k-state-active:hover {
+		background-color: initial !important;
+	}
 
 	.slider-holder {
 		margin: 0 0 10px;
+	}
+	.description {
+		line-height: 18px;
+		margin: 0 0 5px 0;
+	}
+
+	.meta .category {
+		padding: 0 15px 0 0;
+		span {
+			font-weight: bold;
+		}
 	}
 }

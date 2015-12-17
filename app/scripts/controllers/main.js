@@ -51,16 +51,19 @@ angular.module('whatsitworth')
 							});
 						}
 
+						// fix date
 						var formattedDate = new Date(item._source.meta.date.formatted);
-
 						if (formattedDate) {
 							item._source.meta.date.formatted = formattedDate.toString("MMM d, yyyy");
 						}
 
+						// fix price
 						var formattedPrice = item._source.meta.price / 100;
-
 						item._source.meta.price = formattedPrice.toFixed(2);
 
+						// fix image
+						var image = item._source.src.local;
+						item._source.src.local = "http://localhost/~markgable/data/collectorsDB/store/advertising_tins/images/" + image;
 						return item._source;
 					});
 				},
@@ -85,6 +88,9 @@ angular.module('whatsitworth')
 						},
 						date: {
 							from: "meta.date.formatted"
+						},
+						src: {
+							from: "src.local"
 						}
 					}
 				}
@@ -184,4 +190,18 @@ angular.module('whatsitworth')
 	$scope.clear = clear;
 	$scope.mainGridOptions = mainGridOptions;
 	$scope.dataSearch = dataSearch;
+
+	$timeout(function(){var grid = $('div[kendo-grid]').data('kendoGrid');
+	grid.thead.kendoTooltip({
+	    filter: "th",
+	    content: function (e) {
+	    	console.info("tooltip");
+	    	console.info(e);
+	        var target = e.target; // element for which the tooltip is shown
+	        return $(target).text();
+	    }
+	});},1000);
+	
+
+
 });

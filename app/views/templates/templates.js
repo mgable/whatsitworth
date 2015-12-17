@@ -108,10 +108,35 @@ angular.module('Beaker').run(['$templateCache', function($templateCache) {
     "\t</span>\n" +
     "</div>\n" +
     "\n" +
-    "<p class=\"text-center\"><button type=\"button\" class=\"btn btn-link\" ui-sref=\"Search.advanced\">use advanced search</button></p>\n" +
+    "<div class=\"form-group form-inline\">\n" +
+    "\t<div class=\"checkbox\">\n" +
+    "\t\t<label>\n" +
+    "\t\t\t<input type=\"checkbox\" value=\"\" ng-model=\"options.fuzzySearch\">\n" +
+    "\t\t\tFuzzy Search\n" +
+    "\t\t</label>\n" +
+    "\t</div>\n" +
+    "\t&nbsp;\n" +
+    "\t<div class=\"checkbox\">\n" +
+    "\t\t<label>\n" +
+    "\t\t\t<input type=\"checkbox\" value=\"\" ng-model=\"options.highlight\">\n" +
+    "\t\t\tHighlight Matches\n" +
+    "\t\t</label>\n" +
+    "\t</div>\n" +
+    "\t&nbsp;\n" +
+    "\t<div class=\"checkbox\">\n" +
+    "\t\t<label>\n" +
+    "\t\t\t<input type=\"checkbox\" value=\"\" ng-model=\"options.exactMatch\">\n" +
+    "\t\t\tExact Match\n" +
+    "\t\t</label>\n" +
+    "\t</div>\n" +
+    "</div>\n" +
+    "\n" +
+    "<!-- <p class=\"text-center\"><button type=\"button\" class=\"btn btn-link\" ui-sref=\"Search.advanced\">use advanced search</button></p> -->\n" +
     "\n" +
     "<div class=\"grid\" ng-show=\"dataSearch.data().length\">\n" +
-    "\t<div kendo-grid=\"beakerGrid\" options=\"mainGridOptions\"></div>\n" +
+    "\t<div>A search for <em>{{term || \"everything\"}}</em> found {{totalResults}} results.</div>\n" +
+    "\t<br/>\n" +
+    "\t<div kendo-grid=\"myGrid\" k-options=\"mainGridOptions\"></div>\n" +
     "</div>\n" +
     "\n" +
     "<div ng-show=\"!searchForm.pristine && searchForm.$submitted && searchForm.$dirty && dataSearch.data().length === 0\">No results found for <em>{{noResultsTerm}}</em>.</div>\n" +

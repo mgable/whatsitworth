@@ -35,7 +35,7 @@
 <div class="grid" ng-show="dataSearch.data().length">
 	<div>A search for <em>{{term || "everything"}}</em> found {{totalResults}} results.</div>
 	<br/>
-	<div kendo-grid="beakerGrid" options="mainGridOptions"></div>
+	<div kendo-grid="myGrid" k-options="mainGridOptions"></div>
 </div>
 
 <div ng-show="!searchForm.pristine && searchForm.$submitted && searchForm.$dirty && dataSearch.data().length === 0">No results found for <em>{{noResultsTerm}}</em>.</div>

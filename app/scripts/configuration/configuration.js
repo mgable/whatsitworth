@@ -14,25 +14,21 @@ angular.module('whatsitworth')
 		},
 		"columns": [{
 					field: "src",
-					title: "Image",
+					title: "Item",
 					template: "<img src='#: src  #' />"
 				},{
 					field: "title",
-					title: "Title",
+					title: "Description",
+					template: "<div class='description'>#: title #</div><div class='meta'><span class='category'>Bidders:&nbsp; <span>#: bidders #</span></span><span class='category'>Watchers:&nbsp;<span>#: watchers #</span></span></div>",
 					encoded: false
 				},{
 					field: "price",
-					title: "Sold For",
+					title: "Price",
 					template: "<span>$#: price # </span>"
 				},{
 					field: "date",
-					title: "Date Sold"
-				},{
-					field: "bidders",
-					title: "Bidders"
-				},{
-					field: "watchers",
-					title: "Watchers"
+					title: "Date",
+					width: "120px"
 				}]
 	});
 

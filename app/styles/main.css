@@ -98,7 +98,16 @@ body {
     display: block;
     float: none;
     background-color: transparent; }
+  .whatsitworth .k-state-active, .whatsitworth .k-state-active:hover {
+    background-color: initial !important; }
   .whatsitworth .slider-holder {
     margin: 0 0 10px; }
+  .whatsitworth .description {
+    line-height: 18px;
+    margin: 0 0 5px 0; }
+  .whatsitworth .meta .category {
+    padding: 0 15px 0 0; }
+    .whatsitworth .meta .category span {
+      font-weight: bold; }
 
 /*# sourceMappingURL=main.css.map */
