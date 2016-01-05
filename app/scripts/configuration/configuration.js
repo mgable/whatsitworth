@@ -15,11 +15,11 @@ angular.module('whatsitworth')
 		"columns": [{
 					field: "src",
 					title: "Item",
-					template: "<img src='#: src  #' />"
+					template: "<a href='#: link #'><img src='#: src  #' /></a>"
 				},{
 					field: "title",
 					title: "Description",
-					template: "<div class='description'>#: title #</div><div class='meta'><span class='category'>Bidders:&nbsp; <span>#: bidders #</span></span><span class='category'>Watchers:&nbsp;<span>#: watchers #</span></span></div>",
+					template: "<div class='description'>#: title #</div><div class='meta'><span class='category'>Bidders:&nbsp; <span>#: bidders #</span></span><span class='category'>Watchers:&nbsp;<span>#: watchers #</span></span><span class='category' ng-click='showAdditionalImages(\"#: itemId #\")'>Additional Images:&nbsp;<span>#: count #</span></span></div>",
 					encoded: false
 				},{
 					field: "price",

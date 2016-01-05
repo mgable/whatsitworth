@@ -23,8 +23,9 @@ angular.module('whatsitworth')
 		}
 	}
 })
-.controller('SearchCtrl', function ($scope, $timeout, CONFIG) {
-  	var dataSearch = new kendo.data.DataSource({
+.controller('SearchCtrl', function ($scope, $timeout, $uibModal, CONFIG) {
+  	var imagePath = "http://localhost/~markgable/data/collectorsDB/advertising_tins/store/images/",
+  		dataSearch = new kendo.data.DataSource({
 			transport: {
 				read: {
 					url: makeUrl(CONFIG.data.endpoints.search), 
@@ -57,13 +58,25 @@ angular.module('whatsitworth')
 							item._source.meta.date.formatted = formattedDate.toString("MMM d, yyyy");
 						}
 
+						// fix id
+						item._source.itemId = item._source.id;
+
 						// fix price
 						var formattedPrice = item._source.meta.price / 100;
 						item._source.meta.price = formattedPrice.toFixed(2);
 
-						// fix image
+						// fix thumbnail image
 						var image = item._source.src.local;
-						item._source.src.local = "http://localhost/~markgable/data/collectorsDB/store/advertising_tins/images/" + image;
+						item._source.src.local = imagePath + image;
+
+						// fix additional Images
+						var additionalImages = item._source.images.local;
+						item._source.images.local = additionalImages.map(function(image){
+							return imagePath + image;
+						});
+
+						item._source.images.count = additionalImages.length;
+
 						return item._source;
 					});
 				},
@@ -91,6 +104,13 @@ angular.module('whatsitworth')
 						},
 						src: {
 							from: "src.local"
+						},
+						imgs: {
+							type: "array",
+							from: "images.local"
+						},
+						count: {
+							from: "images.count"
 						}
 					}
 				}
@@ -191,17 +211,54 @@ angular.module('whatsitworth')
 	$scope.mainGridOptions = mainGridOptions;
 	$scope.dataSearch = dataSearch;
 
-	$timeout(function(){var grid = $('div[kendo-grid]').data('kendoGrid');
-	grid.thead.kendoTooltip({
-	    filter: "th",
-	    content: function (e) {
-	    	console.info("tooltip");
-	    	console.info(e);
-	        var target = e.target; // element for which the tooltip is shown
-	        return $(target).text();
-	    }
-	});},1000);
-	
+	$scope.showAdditionalImages = function (itemId) {
+		var modalInstance = $uibModal.open({
+			animation: true,
+			templateUrl: 'views/modal.tpl.html',
+			controller: 'ModalInstanceCtrl',
+			size: 'lg', //size,
+			// resolve: {
+			// 	items: function () {
+			// 		return $scope.items;
+			// 	}
+			// }
+		});
 
+		console.info(itemId);
 
+		modalInstance.result.then(function (selectedItem) {
+			console.info(selectedItem);
+			console.info("selectedItem");
+			$scope.selected = selectedItem;
+		}, function () {
+			console.info('Modal dismissed at: ' + new Date());
+		});
+	};
+
+	$timeout(
+		function(){
+			var grid = $('div[kendo-grid]').data('kendoGrid');
+
+			grid.thead.kendoTooltip({
+	    		filter: "th",
+			    content: function (e) {
+			    	console.info("tooltip");
+			    	console.info(e);
+			        var target = e.target; // element for which the tooltip is shown
+			        return $(target).text();
+			    }
+			});
+	},1000);
+})
+.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
+
+  $scope.ok = function () {
+  	console.info("you clicked ok");
+    $uibModalInstance.close("foobar");
+  };
+
+  $scope.cancel = function () {
+  	console.info("you clicked cancel");
+    $uibModalInstance.dismiss('cancel');
+  };
 });
