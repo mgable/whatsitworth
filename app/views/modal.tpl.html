@@ -1,9 +1,9 @@
 <div class="modal-header">
-	<h3 class="modal-title">I'm a modal!</h3>
+	<h3 class="modal-title">{{item.title}}</h3>
 </div>
 <div class="modal-body">
-<uib-carousel interval="0" no-wrap="false">
-		<uib-slide ng-repeat="image in images">
+	<uib-carousel interval="0" no-wrap="false">
+		<uib-slide ng-repeat="image in item.imgs">
 			<img ng-src="{{image}}" style="margin:auto;">
 <!-- 			<div class="carousel-caption">
 				<h4>Slide {{$index}}</h4>
@@ -14,5 +14,4 @@
 </div>
 <div class="modal-footer">
 	<button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-	<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
 </div>

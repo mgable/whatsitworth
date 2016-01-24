@@ -89,6 +89,27 @@ angular.module('Beaker').run(['$templateCache', function($templateCache) {
   );
 
 
+  $templateCache.put('views/modal.tpl.html',
+    "<div class=\"modal-header\">\n" +
+    "\t<h3 class=\"modal-title\">{{item.title}}</h3>\n" +
+    "</div>\n" +
+    "<div class=\"modal-body\">\n" +
+    "\t<uib-carousel interval=\"0\" no-wrap=\"false\">\n" +
+    "\t\t<uib-slide ng-repeat=\"image in item.imgs\">\n" +
+    "\t\t\t<img ng-src=\"{{image}}\" style=\"margin:auto;\">\n" +
+    "<!-- \t\t\t<div class=\"carousel-caption\">\n" +
+    "\t\t\t\t<h4>Slide {{$index}}</h4>\n" +
+    "\t\t\t\t<p>{{slide.text}}</p>\n" +
+    "\t\t\t</div> -->\n" +
+    "\t\t</uib-slide>\n" +
+    "\t</uib-carousel>\n" +
+    "</div>\n" +
+    "<div class=\"modal-footer\">\n" +
+    "\t<button class=\"btn btn-primary\" type=\"button\" ng-click=\"ok()\">OK</button>\n" +
+    "</div>"
+  );
+
+
   $templateCache.put('views/search.html',
     "<div>\n" +
     "\t<form name=\"searchForm\" novalidate autocomplete=\"false\">\n" +

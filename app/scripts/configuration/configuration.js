@@ -5,8 +5,8 @@ angular.module('whatsitworth')
 		"data": {
 			"protocol": "http",
 			"domain": "localhost:9200",
-			"index": "collectors",
-			"type": "tins",
+			"index": "collectorsdb",
+			"type": "advertising_tins",
 			"endpoints": {
 				"search": "_search",
 				"suggest": "_suggest"
@@ -28,7 +28,7 @@ angular.module('whatsitworth')
 				},{
 					field: "date",
 					title: "Date",
-					width: "120px"
+					width: "120px" 
 				}]
 	});
 

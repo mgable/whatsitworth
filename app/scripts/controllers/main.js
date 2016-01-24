@@ -45,6 +45,7 @@ angular.module('whatsitworth')
 				parse: function(data){
 					this.totalRecords = data.hits.total;
 					$scope.totalResults = this.totalRecords;
+					$scope.items = {};
 					return data.hits.hits.map(function(item){
 						if (item.highlight) {
 							_.each(item.highlight, function(v,i){
@@ -70,13 +71,16 @@ angular.module('whatsitworth')
 						item._source.src.local = imagePath + image;
 
 						// fix additional Images
-						var additionalImages = item._source.images.local;
-						item._source.images.local = additionalImages.map(function(image){
+						var additionalImages = item._source.images.local.map(function(image){
 							return imagePath + image;
 						});
 
+						item._source.images.local = additionalImages;
 						item._source.images.count = additionalImages.length;
 
+						$scope.items[item._source.itemId] = item._source;
+						//$scope.images[item._source.itemId] = additionalImages;
+						
 						return item._source;
 					});
 				},
@@ -217,11 +221,11 @@ angular.module('whatsitworth')
 			templateUrl: 'views/modal.tpl.html',
 			controller: 'ModalInstanceCtrl',
 			size: 'lg', //size,
-			// resolve: {
-			// 	items: function () {
-			// 		return $scope.items;
-			// 	}
-			// }
+			resolve: {
+				Item: function () {
+					return $scope.items[itemId];
+				}
+			}
 		});
 
 		console.info(itemId);
@@ -250,7 +254,11 @@ angular.module('whatsitworth')
 			});
 	},1000);
 })
-.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
+.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, Item) {
+
+	$scope.item = Item;
+
+	console.info(Item);
 
   $scope.ok = function () {
   	console.info("you clicked ok");

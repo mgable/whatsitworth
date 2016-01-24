@@ -109,5 +109,7 @@ body {
     padding: 0 15px 0 0; }
     .whatsitworth .meta .category span {
       font-weight: bold; }
+  .whatsitworth .carousel-indicators {
+    bottom: -70px; }
 
 /*# sourceMappingURL=main.css.map */
