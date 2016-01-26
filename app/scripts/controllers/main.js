@@ -24,7 +24,7 @@ angular.module('whatsitworth')
 	}
 })
 .controller('SearchCtrl', function ($scope, $timeout, $uibModal, CONFIG) {
-  	var imagePath = "http://localhost/~markgable/data/collectorsDB/advertising_tins/store/images/",
+  	var imagePath = "https://s3-us-west-1.amazonaws.com/collectors-db/advertising_tins/store/images/",
   		dataSearch = new kendo.data.DataSource({
 			transport: {
 				read: {

@@ -347,8 +347,10 @@ module.exports = function (grunt) {
             '.htaccess',
             '*.html',
             'views/{,*/}*.html',
-            'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'images/{,*/}*.*',
+            'styles/fonts/{,*/}*.*',
+            'styles/external/{,*/}*.*',
+            'scripts/external/{,*/}*.js'
           ]
         }, {
           expand: true,
